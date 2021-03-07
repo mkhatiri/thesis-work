@@ -1,0 +1,306 @@
+\begin{thebibliography}{31}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Inproceedings
+\bibitem[{Acar et~al.(2000)Acar, Blelloch and Blumofe}]{Acar2000}
+\bibinfo{author}{Acar, U.A.}, \bibinfo{author}{Blelloch, G.E.},
+  \bibinfo{author}{Blumofe, R.D.}, \bibinfo{year}{2000}.
+\newblock \bibinfo{title}{The data locality of work stealing}, in:
+  \bibinfo{booktitle}{Proceedings of the Twelfth Annual ACM Symposium on
+  Parallel Algorithms and Architectures}, \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}. pp. \bibinfo{pages}{1--12}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/341800.341801},
+  \DOIprefix\doi{10.1145/341800.341801}.
+%Type = Article
+\bibitem[{Acar et~al.(2002)Acar, Blelloch and Blumofe}]{Acar2002}
+\bibinfo{author}{Acar, U.A.}, \bibinfo{author}{Blelloch, G.E.},
+  \bibinfo{author}{Blumofe, R.D.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{The data locality of work stealing}.
+\newblock \bibinfo{journal}{Theory of Computing Systems} \bibinfo{volume}{35},
+  \bibinfo{pages}{321--347}.
+\newblock \URLprefix \url{https://doi.org/10.1007/s00224-002-1057-3},
+  \DOIprefix\doi{10.1007/s00224-002-1057-3}.
+%Type = Inproceedings
+\bibitem[{Agrawal et~al.(2010)Agrawal, Leiserson and Sukha}]{Agrawal}
+\bibinfo{author}{Agrawal, K.}, \bibinfo{author}{Leiserson, C.E.},
+  \bibinfo{author}{Sukha, J.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Executing task graphs using work-stealing}, in:
+  \bibinfo{booktitle}{2010 IEEE International Symposium on Parallel Distributed
+  Processing (IPDPS)}, pp. \bibinfo{pages}{1--12}.
+\newblock \DOIprefix\doi{10.1109/IPDPS.2010.5470403}.
+%Type = Article
+\bibitem[{Arafat et~al.(2016)Arafat, Dinan, Krishnamoorthy, Balaji and
+  Sadayappan}]{Arafat2016}
+\bibinfo{author}{Arafat, H.}, \bibinfo{author}{Dinan, J.},
+  \bibinfo{author}{Krishnamoorthy, S.}, \bibinfo{author}{Balaji, P.},
+  \bibinfo{author}{Sadayappan, P.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Work stealing for gpu-accelerated parallel programs
+  in a global address space framework}.
+\newblock \bibinfo{journal}{Concurr. Comput. : Pract. Exper.}
+  \bibinfo{volume}{28}, \bibinfo{pages}{3637--3654}.
+\newblock \URLprefix \url{https://doi.org/10.1002/cpe.3747},
+  \DOIprefix\doi{10.1002/cpe.3747}.
+%Type = Inproceedings
+\bibitem[{Arora et~al.(2001)Arora, Blumofe and Plaxton}]{Arora2001}
+\bibinfo{author}{Arora, N.S.}, \bibinfo{author}{Blumofe, R.D.},
+  \bibinfo{author}{Plaxton, C.G.}, \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{Thread scheduling for multiprogrammed
+  multiprocessors}, in: \bibinfo{booktitle}{In Proceedings of the Tenth Annual
+  ACM Symposium on Parallel Algorithms and Architectures (SPAA), Puerto
+  Vallarta}, pp. \bibinfo{pages}{119--129}.
+%Type = Article
+\bibitem[{Bender and Rabin(2002)}]{Bender2002}
+\bibinfo{author}{Bender, M.A.}, \bibinfo{author}{Rabin, M.O.},
+  \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Online scheduling of parallel programs on
+  heterogeneous systems with applications to cilk}.
+\newblock \bibinfo{journal}{Theory of Computing Systems} \bibinfo{volume}{35},
+  \bibinfo{pages}{289--304}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1007/s00224-002-1055-5},
+  \DOIprefix\doi{10.1007/s00224-002-1055-5}.
+%Type = Article
+\bibitem[{Berenbrink et~al.(2003)Berenbrink, Friedetzky and
+  Goldberg}]{Berenbrink2003}
+\bibinfo{author}{Berenbrink, P.}, \bibinfo{author}{Friedetzky, T.},
+  \bibinfo{author}{Goldberg, L.A.}, \bibinfo{year}{2003}.
+\newblock \bibinfo{title}{The natural work-stealing algorithm is stable}.
+\newblock \bibinfo{journal}{SIAM Journal on Computing} \bibinfo{volume}{32},
+  \bibinfo{pages}{1260--1279}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1137/S0097539701399551},
+  \DOIprefix\doi{10.1137/S0097539701399551},
+  \href{http://arxiv.org/abs/http://dx.doi.org/10.1137/S0097539701399551}{\tt
+  arXiv:http://dx.doi.org/10.1137/S0097539701399551}.
+%Type = Article
+\bibitem[{Blumofe and Leiserson(1999)}]{Blumofe1999}
+\bibinfo{author}{Blumofe, R.D.}, \bibinfo{author}{Leiserson, C.E.},
+  \bibinfo{year}{1999}.
+\newblock \bibinfo{title}{Scheduling multithreaded computations by work
+  stealing}.
+\newblock \bibinfo{journal}{J. ACM} \bibinfo{volume}{46},
+  \bibinfo{pages}{720--748}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/324133.324234},
+  \DOIprefix\doi{10.1145/324133.324234}.
+%Type = Article
+\bibitem[{Casanova et~al.(2014)Casanova, Giersch, Legrand, Quinson and
+  Suter}]{SIMGRID}
+\bibinfo{author}{Casanova, H.}, \bibinfo{author}{Giersch, A.},
+  \bibinfo{author}{Legrand, A.}, \bibinfo{author}{Quinson, M.},
+  \bibinfo{author}{Suter, F.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{{Versatile, Scalable, and Accurate Simulation of
+  Distributed Applications and Platforms}}.
+\newblock \bibinfo{journal}{{Journal of Parallel and Distributed Computing}}
+  \bibinfo{volume}{74}, \bibinfo{pages}{2899--2917}.
+\newblock \URLprefix \url{https://hal.inria.fr/hal-01017319},
+  \DOIprefix\doi{10.1016/j.jpdc.2014.06.008}.
+%Type = Book
+\bibitem[{Cosnard and Trystram(1995)}]{CosnardTrystram92}
+\bibinfo{author}{Cosnard, M.}, \bibinfo{author}{Trystram, D.},
+  \bibinfo{year}{1995}.
+\newblock \bibinfo{title}{Parallel algorithms and architectures}.
+\newblock \bibinfo{publisher}{International Thomson}.
+%Type = Inproceedings
+\bibitem[{Dinan et~al.(2009)Dinan, Larkins, Sadayappan, Krishnamoorthy and
+  Nieplocha}]{Dinan2009}
+\bibinfo{author}{Dinan, J.}, \bibinfo{author}{Larkins, D.B.},
+  \bibinfo{author}{Sadayappan, P.}, \bibinfo{author}{Krishnamoorthy, S.},
+  \bibinfo{author}{Nieplocha, J.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Scalable work stealing}, in:
+  \bibinfo{booktitle}{Proceedings of the Conference on High Performance
+  Computing Networking, Storage and Analysis}, \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}. pp. \bibinfo{pages}{53:1--53:11}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/1654059.1654113},
+  \DOIprefix\doi{10.1145/1654059.1654113}.
+%Type = Article
+\bibitem[{Durrett(1996)}]{durrett1996probability}
+\bibinfo{author}{Durrett, R.}, \bibinfo{year}{1996}.
+\newblock \bibinfo{title}{Probability: theory and examples} .
+%Type = Article
+\bibitem[{Frigo et~al.(1998)Frigo, Leiserson and Randall}]{Leiserson1998}
+\bibinfo{author}{Frigo, M.}, \bibinfo{author}{Leiserson, C.E.},
+  \bibinfo{author}{Randall, K.H.}, \bibinfo{year}{1998}.
+\newblock \bibinfo{title}{The implementation of the cilk-5 multithreaded
+  language}.
+\newblock \bibinfo{journal}{SIGPLAN Not.} \bibinfo{volume}{33},
+  \bibinfo{pages}{212--223}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/277652.277725},
+  \DOIprefix\doi{10.1145/277652.277725}.
+%Type = Article
+\bibitem[{Gast and Bruno(2010)}]{Gast2010}
+\bibinfo{author}{Gast, N.}, \bibinfo{author}{Bruno, G.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{A mean field model of work stealing in large-scale
+  systems}.
+\newblock \bibinfo{journal}{SIGMETRICS Perform. Eval. Rev.}
+  \bibinfo{volume}{38}, \bibinfo{pages}{13--24}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/1811099.1811042},
+  \DOIprefix\doi{10.1145/1811099.1811042}.
+%Type = Inproceedings
+\bibitem[{Gautier et~al.(2007)Gautier, Besseron and Pigeon}]{Kaapi2007}
+\bibinfo{author}{Gautier, T.}, \bibinfo{author}{Besseron, X.},
+  \bibinfo{author}{Pigeon, L.}, \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Kaapi: A thread scheduling runtime system for data
+  flow computations on cluster of multi-processors}, in:
+  \bibinfo{booktitle}{Proceedings of the 2007 International Workshop on
+  Parallel Symbolic Computation}, \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}. pp. \bibinfo{pages}{15--23}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/1278177.1278182},
+  \DOIprefix\doi{10.1145/1278177.1278182}.
+%Type = Inproceedings
+\bibitem[{Guo et~al.(2010)Guo, Zhao, Cave and Sarkar}]{Gue2010}
+\bibinfo{author}{Guo, Y.}, \bibinfo{author}{Zhao, J.}, \bibinfo{author}{Cave,
+  V.}, \bibinfo{author}{Sarkar, V.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Slaw: A scalable locality-aware adaptive
+  work-stealing scheduler}, in: \bibinfo{booktitle}{2010 IEEE International
+  Symposium on Parallel Distributed Processing (IPDPS)}, pp.
+  \bibinfo{pages}{1--12}.
+\newblock \DOIprefix\doi{10.1109/IPDPS.2010.5470425}.
+%Type = Inproceedings
+\bibitem[{Hamid et~al.(2015a)Hamid, Walters and
+  Wills}]{MultiCoreClusterArchitectur2015}
+\bibinfo{author}{Hamid, N.}, \bibinfo{author}{Walters, R.},
+  \bibinfo{author}{Wills, G.}, \bibinfo{year}{2015}a.
+\newblock \bibinfo{title}{Simulation and mathematical analysis of multi-core
+  cluster architecture}, in: \bibinfo{booktitle}{2015 17th UKSim-AMSS
+  International Conference on Modelling and Simulation (UKSim)}, pp.
+  \bibinfo{pages}{476--481}.
+\newblock \DOIprefix\doi{10.1109/UKSim.2015.54}.
+%Type = Unpublished
+\bibitem[{Hamid et~al.(2015b)Hamid, Walters and Wills}]{MCMCA}
+\bibinfo{author}{Hamid, N.}, \bibinfo{author}{Walters, R.J.},
+  \bibinfo{author}{Wills, G.B.}, \bibinfo{year}{2015}b.
+\newblock \bibinfo{title}{An analytical model of multi-core multi-cluster
+  architecture (mcmca)}.
+\newblock \URLprefix \url{http://eprints.soton.ac.uk/374744/}.
+%Type = Article
+\bibitem[{Khatiri et~al.(2019)Khatiri, Trystram and Wagner}]{simulator}
+\bibinfo{author}{Khatiri, M.}, \bibinfo{author}{Trystram, D.},
+  \bibinfo{author}{Wagner, F.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Work stealing simulator}.
+\newblock \bibinfo{journal}{CoRR} \bibinfo{volume}{abs/1910.02803}.
+\newblock \URLprefix \url{http://arxiv.org/abs/1910.02803},
+  \href{http://arxiv.org/abs/1910.02803}{\tt arXiv:1910.02803}.
+%Type = Inproceedings
+\bibitem[{Leiserson(2009)}]{Leiserson2009}
+\bibinfo{author}{Leiserson, C.E.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{The cilk++ concurrency platform}, in:
+  \bibinfo{booktitle}{Proceedings of the 46th Annual Design Automation
+  Conference}, \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA}.
+  pp. \bibinfo{pages}{522--527}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/1629911.1630048},
+  \DOIprefix\doi{10.1145/1629911.1630048}.
+%Type = Inproceedings
+\bibitem[{Li et~al.(2013)Li, Hu, Cheng and Zhao}]{Shigang2013}
+\bibinfo{author}{Li, S.}, \bibinfo{author}{Hu, J.}, \bibinfo{author}{Cheng,
+  X.}, \bibinfo{author}{Zhao, C.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Asynchronous work stealing on distributed memory
+  systems}, in: \bibinfo{booktitle}{2013 21st Euromicro International
+  Conference on Parallel, Distributed, and Network-Based Processing}, pp.
+  \bibinfo{pages}{198--202}.
+\newblock \DOIprefix\doi{10.1109/PDP.2013.35}.
+%Type = Inproceedings
+\bibitem[{L\"{u}ling and Monien(1993)}]{Lueling1993}
+\bibinfo{author}{L\"{u}ling, R.}, \bibinfo{author}{Monien, B.},
+  \bibinfo{year}{1993}.
+\newblock \bibinfo{title}{A dynamic distributed load balancing algorithm with
+  provable good performance}, in: \bibinfo{booktitle}{Proceedings of the Fifth
+  Annual ACM Symposium on Parallel Algorithms and Architectures},
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA}. pp.
+  \bibinfo{pages}{164--172}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/165231.165252},
+  \DOIprefix\doi{10.1145/165231.165252}.
+%Type = Inproceedings
+\bibitem[{Seung~jai Min and Yelick(2011)}]{Seung-Jai2011}
+\bibinfo{author}{Seung~jai Min, C.I.}, \bibinfo{author}{Yelick, K.},
+  \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{Hierarchical work stealing on manycore clusters}, in:
+  \bibinfo{booktitle}{In: Fifth Conference on Partitioned Global Address Space
+  Programming Models. Galveston Island}.
+%Type = Inproceedings
+\bibitem[{Mitzenmacher(1998)}]{Mitzenmache1998}
+\bibinfo{author}{Mitzenmacher, M.}, \bibinfo{year}{1998}.
+\newblock \bibinfo{title}{Analyses of load stealing models based on
+  differential equations}, in: \bibinfo{booktitle}{Proceedings of the Tenth
+  Annual ACM Symposium on Parallel Algorithms and Architectures},
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA}. pp.
+  \bibinfo{pages}{212--221}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/277651.277687},
+  \DOIprefix\doi{10.1145/277651.277687}.
+%Type = Inproceedings
+\bibitem[{Muller and Acar(2016)}]{Muller2106}
+\bibinfo{author}{Muller, S.K.}, \bibinfo{author}{Acar, U.A.},
+  \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Latency-hiding work stealing: Scheduling interacting
+  parallel computations with work stealing}, in:
+  \bibinfo{booktitle}{Proceedings of the 28th ACM Symposium on Parallelism in
+  Algorithms and Architectures}, \bibinfo{publisher}{ACM},
+  \bibinfo{address}{New York, NY, USA}. pp. \bibinfo{pages}{71--82}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/2935764.2935793},
+  \DOIprefix\doi{10.1145/2935764.2935793}.
+%Type = Inproceedings
+\bibitem[{Perarnau and Sato(2014)}]{swann2014}
+\bibinfo{author}{Perarnau, S.}, \bibinfo{author}{Sato, M.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Victim selection and distributed work stealing
+  performance: A case study}, in: \bibinfo{booktitle}{2014 IEEE 28th
+  International Parallel and Distributed Processing Symposium}, pp.
+  \bibinfo{pages}{659--668}.
+\newblock \DOIprefix\doi{10.1109/IPDPS.2014.74}.
+%Type = Inproceedings
+\bibitem[{Robison et~al.(2008)Robison, Voss and Kukanov}]{Robison2008}
+\bibinfo{author}{Robison, A.}, \bibinfo{author}{Voss, M.},
+  \bibinfo{author}{Kukanov, A.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Optimization via reflection on work stealing in tbb},
+  in: \bibinfo{booktitle}{2008 IEEE International Symposium on Parallel and
+  Distributed Processing}, pp. \bibinfo{pages}{1--8}.
+\newblock \DOIprefix\doi{10.1109/IPDPS.2008.4536188}.
+%Type = Inproceedings
+\bibitem[{Rudolph et~al.(1991)Rudolph, Slivkin-Allalouf and
+  Upfal}]{Rudolph1991}
+\bibinfo{author}{Rudolph, L.}, \bibinfo{author}{Slivkin-Allalouf, M.},
+  \bibinfo{author}{Upfal, E.}, \bibinfo{year}{1991}.
+\newblock \bibinfo{title}{A simple load balancing scheme for task allocation in
+  parallel machines}, in: \bibinfo{booktitle}{Proceedings of the Third Annual
+  ACM Symposium on Parallel Algorithms and Architectures},
+  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA}. pp.
+  \bibinfo{pages}{237--245}.
+\newblock \URLprefix \url{http://doi.acm.org/10.1145/113379.113401},
+  \DOIprefix\doi{10.1145/113379.113401}.
+%Type = Inbook
+\bibitem[{Sanders(1999)}]{Sanders1999}
+\bibinfo{author}{Sanders, P.}, \bibinfo{year}{1999}.
+\newblock \bibinfo{title}{Asynchronous Random Polling Dynamic Load Balancing}.
+  \bibinfo{publisher}{Springer Berlin Heidelberg}, \bibinfo{address}{Berlin,
+  Heidelberg}.
+\newblock pp. \bibinfo{pages}{37--48}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1007/3-540-46632-05},
+  \DOIprefix\doi{10.1007/3-540-46632-0_5}.
+%Type = Article
+\bibitem[{Tchiboukdjian et~al.(2013)Tchiboukdjian, Gast and
+  Trystram}]{Denis2013}
+\bibinfo{author}{Tchiboukdjian, M.}, \bibinfo{author}{Gast, N.},
+  \bibinfo{author}{Trystram, D.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Decentralized list scheduling}.
+\newblock \bibinfo{journal}{Annals of Operations Research}
+  \bibinfo{volume}{207}, \bibinfo{pages}{237--259}.
+\newblock \URLprefix \url{http://dx.doi.org/10.1007/s10479-012-1149-7},
+  \DOIprefix\doi{10.1007/s10479-012-1149-7}.
+%Type = Article
+\bibitem[{Yang and He(2017)}]{Yang2017}
+\bibinfo{author}{Yang, J.}, \bibinfo{author}{He, Q.}, \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Scheduling parallel computations by work stealing: A
+  survey}.
+\newblock \bibinfo{journal}{International Journal of Parallel Programming} ,
+  \bibinfo{pages}{1--25}\URLprefix
+  \url{http://dx.doi.org/10.1007/s10766-016-0484-8},
+  \DOIprefix\doi{10.1007/s10766-016-0484-8}.
+
+\end{thebibliography}

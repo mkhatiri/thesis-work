@@ -1,0 +1,234 @@
+% !TEX root = ./main.tex
+\section{Introduction}
+\label{sec:intro}
+
+Work stealing (WS) is a distributed on-line scheduling algorithm
+proposed for shared-memory multi-cores~\cite{Arora2001}. With work
+stealing, each processor maintains a local list of tasks to be
+executed. When a processor has executed all its local work, it probes
+others by sending work requests to randomly chosen processors. We say
+that this processor attempts to ``\emph{steal}'' work from others.
+Despite its apparent simplicity, work stealing has been proven to be
+very effective for scheduling tasks in shared-memory homogeneous
+architectures~\cite{Blumofe1999}. Today, the research on WS is driven
+by the question on how to extend the analysis for the characteristics
+of new computing platforms (distributed memory, large scale,
+heterogeneity).  Notice that beside its theoretical interest, WS has
+been implemented successfully in several languages and parallel
+libraries including Cilk~\cite{Leiserson1998,Leiserson2009}, TBB
+(Threading Building Blocks)~\cite{Robison2008}, the PGAS
+language~\cite{Dinan2009,Seung-Jai2011} and the KAAPI run-time
+system~\cite{Kaapi2007}.
+
+% The performance of a scheduling algorithm is defined by the
+% \textit{Makespan}, defined as the maximum completion time of the
+% parallel application.
+
+In this paper, we study the performance of WS in a distributed-memory
+context.
+Such an architecture consists of independent processing elements with
+private local memories linked by an interconnection
+network. Communication latency is crucial and highly influences the
+performance of the applications~\cite{MCMCA}. 
+% However, there are only few works dealing with optimized allocation strategies and the relationships with the allocation and scheduling process is most often ignored.
+The impact of scheduling is important since the whole execution can be
+highly affected by a large communication latency of interconnection
+networks~\cite{MultiCoreClusterArchitectur2015}.
+
+
+%Principle of WS
+% WS is an efficient scheduling mechanism targeting medium range parallelism of multi-cores for fine-grain tasks.
+% Its principle is briefly recalled as follows:
+% each processor manages its own (local) list of tasks.
+% When a processor becomes idle, it randomly chooses another processor and steals some work (if possible).
+% Its analysis is probabilistic since the algorithm itself is randomized.
+
+
+
+
+
+\paragraph{Contributions}%  We present a theoretical analysis for an
+% upper bound of the expected makespan and we run a complementary series
+% of simulations in order to assess how this new bound behaves in
+% practice depending on the value of the latency.
+In this work, we study how communication latency impacts work
+stealing.  Our work has four main contributions. First, we create a
+new realistic scheduling model for distributed-memory clusters of $p$
+identical processors including latency (denoted by $\lambda$).  Second,
+we provide an upper bound of the expected makespan to execute a bag of
+$\calW$ independent unitary tasks by $p$ processors.  This bound is
+the sum of two terms. The first is the usual lower bound on the best
+possible load-balancing~$\frac{\mathcal{W}}{p}$; The second term is
+proportional to $\lambda\log(\frac{\mathcal{W}}{\lambda})$.
+%The additional term depends on the dependence model. In the case of independent tasks, this additional term is
+%$16\lambda\log_2(\frac{\mathcal{W}}{\lambda})$.
+%In the case of DAG, this term is proportional to the critical path.
+Third, we develop a lightweight Python simulator for running adequate
+experiments. Our simulator is developed to be flexible enough to
+simulate different topologies and applications with different variants
+of Work Stealing algorithms.
+%This simulator uses the Work Stealing algorithm to schedule an amount of
+%work W in a distributed platform composed of p
+%identical processors. 
+The code is available on GitHub (\url{https://wssimulator.github.io})
+along logs of presented experiments. The simulator is
+generic enough to be used in different contexts of online
+scheduling and interfaces with standard trace analysis
+tools
+Using this simulator,
+we provide simulation results that challenges this bound.
+%in the case of indepedent tasks.
+These experiments show that the second additional term has indeed the
+form $c\lambda\log_2(\frac{\mathcal{W}}{\lambda})$, with
+$c\approx3.8$. Note that our theoretical upper bound shows that
+$c\le16.12$.  Finally, we show that our methodology can be easily
+extended to the case of tasks with precedence. We provide an upper
+bound of the expected makespan in this case. This bound is also
+composed of two terms. The first is the usual lower bound
+$\frac{\mathcal{W}}{p}$ and the second additional term is proportional to the
+critical path ($6\lambda D$)
+
+Our analyses are based on the use of adequate potential
+functions. While the overall approach is similar to existing work, and in
+particular \cite{Denis2013}, there are two technical difficulties that
+had to be lifted.  First, a natural extension of the potential
+functions used in \cite{Denis2013} does not work as one needs to
+account for the work in transit. Second, we do not assume that task
+execution and steal requests are synchronized.  This leads to consider
+time steps of duration equal to the communication latency.
+
+The rest of the paper is organized as follows.  We review the related works
+in Section~\ref{sec:relatedworks}. We present the independent task
+model in Section~\ref{sec:wsmechanisms}. We derive our main technical
+result in Section~\ref{sec:analysis_indep} in which we obtain a bound
+on the makespan. We introduce our work stealing simulator in
+Section~\ref{sec:experiemnts} that we use to study the limits of our
+analysis. We show how to extend our analysis to tasks with precedence
+in Section~\ref{sec:dagOfPrecedence} and conclude in
+Section~\ref{sec:conclusion}.  Last, Appendix~\ref{sec:proofs} contains
+some technical proofs. 
+
+\section{Related Work}
+\label{sec:relatedworks}
+
+Let us first introduce the problem of scheduling:
+It is the process which aims at determining where and when to execute the tasks of a target parallel application.
+The applications are represented as directed acyclic graphs where the vertices are the basic operations and the arcs are the dependencies between the tasks~\cite{CosnardTrystram92}.
+Scheduling is a crucial problem which has been extensively studied under many variants for the successive generations of parallel and distributed systems.
+The most commonly studied objective is to minimize the makespan (denoted by $C_{\max}$) and the underlying context is usually to consider centralized algorithms.
+This assumption is not always realistic, especially if we consider distributed memory allocations and an on-line setting.
+% (called \emph{Makespan} and denoted by $C_{\max}$)
+
+
+Work Stealing (WS) is a distributed version of scheduling that received sustained attention over the last twenty years. 
+It has been studied originally by Blumofe and Leiserson
+in~\cite{Blumofe1999}.  They showed that the expected Makespan of a
+series-parallel precedence graph with $\mathcal{W}$ unit tasks on $p$
+processors is bounded by
+$E(C_{\max}) \leq \frac{\mathcal{W}}{p}+\mathcal{O}(D)$ where $D$ is
+the length of the critical path of the graph (its depth).  This
+analysis has been improved in Arora \textit{et al.}~\cite{Arora2001}
+using potential functions.  The case of varying processor speeds has
+been studied by Bender and Rabin in~\cite{Bender2002} where the
+authors introduced a new policy called \textit{high utilization
+  scheduler} that extends the homogeneous case.  The specific case of
+tree-shaped computations with a more accurate model has been studied
+in~\cite{Sanders1999}.  However, in all these previous analyses, the
+precedence graph is constrained to have only one source and an
+out-degree of at most 2 which does not easily model the basic case of
+independent tasks.  Simulating independent tasks with a binary
+precedences tree gives a bound of
+$\frac{\mathcal{W}}{p}+\mathcal{O}(\log_2 (\mathcal{W}))$ since a
+complete binary tree of $\mathcal{W}$ vertices has a depth
+$D \leq \log_2 (\mathcal{W})$.  However, with this approach, the
+structure of the binary tree dictates which tasks are stolen. More
+recently, in \cite{Denis2013}, Tchiboukjian \textit{et al.} provided
+the best bound known at this time:
+$\frac{\mathcal{W}}{p}+c.(\log_2 \mathcal{W})+\Theta(1)$ where
+$c\approx3.24$.
+
+Acar \emph{et al.}~\cite{Acar2000,Acar2002} studied data locality of
+WS on shared-memory and focus on cache misses.  The underlying model
+assumes that the execution time takes $m$ time units if the
+instruction incurs a cache miss and $1$ unit otherwise.  A steal
+attempt takes at least $s$ and at most $ks$ steps to complete ($k\ge1$
+multiple steal attempts before succeeding).  When a steal succeeds,
+the thief starts working on the stolen task at the next step.  This
+model is similar to the classical WS model without communication since
+the thief does not wait several time steps to receive the stolen task.
+
+In complement,~\cite{Gast2010,Mitzenmache1998} provided a theoretical
+analysis based on a Markovian model using mean field theory. They
+targeted the expectation of the average response time and showed that
+the system converges to a deterministic Ordinary Differential
+Equation.  Note that there exist other results that study the steady
+state performance of WS when the work generation is random including
+Berenbrink \textit{et al.}~\cite{Berenbrink2003}, Lueling and
+Monien~\cite{Lueling1993} and Rudolph \textit{et al.}~\cite{Rudolph1991}.  
+%\bigskip
+
+%extension vers les comm
+
+
+In all these previous theoretical results, communications are not directly addressed
+(or at least they are taken implicitly into account by the underlying model).
+Most studies on WS largely focused on shared memory systems and 
+its performance on modern platforms (distributed-memory systems, hierarchical platform, clusters with explicit communication cost) is not really well understood. 
+The difficulty lies in the problems of communication which become more crucial in modern platforms~\cite{Arafat2016}.
+Let us briefly review the most relevant works dealing with WS with communications.
+
+%Furthermore, the communication issues become even more crucial in heterogeneous distributed systems
+%In shared-memory systems the thieves constantly attempt to asynchronously steal work from randomly chosen victims
+%until they find work. In distributed-memory systems, it is much harder since the thieves cannot autonomously steal
+%work from a victim without disrupting its execution~\cite{Saraswat2011}.
+%WS algorithms are based on shared memory multicore chips, 
+Dinan \textit{et al.}~\cite{Dinan2009} implemented WS on large-scale clusters,
+and proposed to split each tasks queues into a part accessed asynchronously by local processes 
+and a shared portion synchronized by a lock which can be access by any remote processes in order to reduce contention.
+%In-place task creation which optimize critical operations. 
+%Multi-core processor based on NUMA (non-uniform memory access) architecture is the mainstream today and such new platforms include accelerators as GPGPU~\cite{Yang2017}. 
+The authors propose an efficient task management mechanism which is to divide the application into a large
+number of fine grained tasks which generate a large amount of small communications between the CPU and the GPGPU accelerators.
+However, these data transmissions are very slow.
+They consider that the transmission time of small data and large data is the same. 
+
+
+Besides the large literature on theoretical works, there exist more practical studies implementing WS libraries where some attempts were provided for taking into account communications:
+%practical
+SLAW is a task-based library introduced in~\cite{Gue2010}, combining work-first
+and help-first scheduling policies focused on locality awareness 
+in PGAS (Partitioned Global Address Space) languages like UPC (Unified Parallel C). 
+It has been extended in HotSLAW, which provides a high level API that abstracts concurrent task management~\cite{Seung-Jai2011}.
+\cite{Shigang2013} proposes an asynchronous WS (AsynchWS) strategy which exploits opportunities to overlap communication with
+local tasks allowing to hide high communication overheads in distributed memory systems. 
+The principle is based on a hierarchical victim selection, also based on PGAS.
+Perarnau and Sato presented in~\cite{swann2014} an experimental evaluation of WS on the scale of ten thousands compute nodes where the communication depends on the distance between the nodes.
+They investigated in detail the impact of the communication on the performance. In particular, the physical distance between remote nodes is taken into account.
+Mullet \textit{et al.} studied in~\cite{Muller2106} 
+Latency-Hiding, a new WS algorithm that hides the overhead
+caused by some operations, such as waiting for a request from a client or waiting
+for a response from a remote machine.
+The authors refer to this delay as \emph{latency} which is slightly
+different that the more general concept we consider in our paper. 
+Agrawal \textit{et al.} proposed in~\cite{Agrawal} an analysis showing the optimality for task graphs with bounded degrees
+and they developed a library in Cilk++ called \textit{Nabbit} for executing tasks
+with arbitrary dependencies, with reasonable block sizes.
+
+%\bigskip
+
+%\cite{Jixiang Yang xx }
+
+%Traditional work stealing strategy mainly verifies its performance by simulation data
+%or individual applications and concludes corresponding results. Parallel
+%computing becomes popular in multi-core era, and it is not persuasive to verify
+%scheduling performance just by selecting experimental data for individual applications,
+%but needs to have a lot of applications to test its performance.
+
+%Med : in our paper we study the work stealing in general, so the theoretical results covers several a lot of applications that use work stealing with communication cost  
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: cas-model2-names.bst
+Database file #1: cas-refs.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty journal in durrett1996probability
+Warning--empty note in MCMCA
+Warning--empty pages in Seung-Jai2011
+Warning--empty chapter and pages in Sanders1999
+You've used 31 entries,
+            2990 wiz_defined-function locations,
+            1003 strings with 13659 characters,
+and the built_in function-call counts, 22753 in all, are:
+= -- 1951
+> -- 734
+< -- 29
++ -- 302
+- -- 252
+* -- 2447
+:= -- 3170
+add.period$ -- 101
+call.type$ -- 31
+change.case$ -- 237
+chr.to.int$ -- 30
+cite$ -- 35
+duplicate$ -- 1707
+empty$ -- 1673
+format.name$ -- 355
+if$ -- 4478
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 308
+newline$ -- 178
+num.names$ -- 124
+pop$ -- 541
+preamble$ -- 1
+purify$ -- 208
+quote$ -- 0
+skip$ -- 628
+stack$ -- 0
+substring$ -- 1024
+swap$ -- 1255
+text.length$ -- 16
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 273
+warning$ -- 4
+while$ -- 153
+width$ -- 0
+write$ -- 505
+(There were 4 warnings)

@@ -1,0 +1,199 @@
+%% 
+%% Copyright 2019-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'CAS Bundle'.
+%% --------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'CAS Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for cas-sc documentclass for 
+%% single column output.
+
+%\documentclass[a4paper,fleqn,longmktitle]{cas-sc}
+\documentclass[a4paper,fleqn]{cas-sc}
+
+%\usepackage[numbers]{natbib}
+%\usepackage[authoryear]{natbib}
+\usepackage[square,numbers]{natbib}
+
+\usepackage{url}
+%\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{empheq} 
+\usepackage{xcolor}
+\newcommand*{\MyDef}{\mathrm{def}}
+\newcommand*{\eqdefU}{\ensuremath{\mathop{\overset{\MyDef}{=}}}}
+\newcommand*{\eqde}{\ensuremath{\mathop{\overset{\MyDef}{=}}}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\N{\mathbb{N}}
+\newcommand\R{\mathbb{R}}
+\newcommand\calF{\mathcal{F}}
+\newcommand\calW{\mathcal{W}}
+\newcommand\calS{\mathcal{S}}
+\newcommand\esp[1]{{\mathchoice{\besp{#1}}{\sesp{#1}}{\sesp{#1}}{\sesp{#1}}}}
+\newcommand\besp[1]{\mathbb{E}\left[#1\right]}
+\newcommand\sesp[1]{\mathbb{E}[#1]}
+\newcommand\Proba[1]{{\mathchoice{\bProba{#1}}{\sProba{#1}}{\sProba{#1}}{\sProba{#1}}}} 
+\newcommand\bProba[1]{\mathbb{P}\left[#1\right]}
+\newcommand\sProba[1]{\mathbb{P}[#1]}
+\newcommand\norm[1]{{\mathchoice{\bnorm{#1}}{\snorm{#1}}{\snorm{#1}}{\snorm{#1}}}}
+\newcommand\bnorm[1]{\left\|#1\right\|}
+\newcommand\snorm[1]{\|#1\|}
+\newcommand\red[1]{{\color{red}#1}}
+\usepackage{enumitem}
+%\usepackage{hyperref}
+%\definecolor{darkblue}{rgb}{0 0 .6}
+%\hypersetup{%
+%  colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
+%  linkcolor=darkblue,citecolor=darkblue,urlcolor=darkblue
+%}
+ \newtheorem{theorem}{Theorem}
+ \newtheorem{lemma}[theorem]{Lemma}
+ \newdefinition{rmk}{Remark}
+ \newproof{proof}{Proof}
+ \newproof{pf}{Proof}
+ \newproof{pot}{Proof of Theorem \ref{thm2}}
+\renewlist{cases}{enumerate}{10}
+\setlist[cases]{label=\textbf{Case \arabic*}, itemindent=0pt,leftmargin=35pt,  listparindent=1.5 em}
+
+\newcommand\nbworkrequest{\#\text{\{Work Requests\}}}
+
+%%%Author macros
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+\tsc{WGM}
+\tsc{QE}
+\tsc{EP}
+\tsc{PMS}
+\tsc{BEC}
+\tsc{DE}
+%%%
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+\shorttitle{Analysis of Work Stealing with latency}
+\shortauthors{Nicolas Gast et~al.}
+%\begin{frontmatter}
+
+\title [mode = title]{Analysis of Work Stealing with latency}                      
+%\tnotemark[1,2]
+
+
+\author[1]{Nicolas Gast}
+\author[1,2]{Mohammed Khatiri}
+\author[1]{Denis Trystram}
+\author[1]{Fr\'ed\'eric Wagner}
+
+                                                
+\address[1]{Univ. Grenoble Alpes, Inria, CNRS, Grenoble INP, LIG, 38000 Grenoble, France}
+\address[2]{University Mohammed First, Faculty of Sciences, LaRI, 60000, Oujda, Morocco}
+\address[]{Email: firstname.lastname@inria.fr} 
+
+
+%\affil[ ]{Email: firstname.lastname@inria.fr}  
+
+
+\begin{abstract}
+ We study the impact of communication latency on the
+  classical \emph{Work Stealing} load balancing algorithm.  Our paper
+  extends the reference model in which we introduce a latency
+  parameter. By using a theoretical analysis and simulation, we study
+  the overall impact of this latency on the Makespan (maximum
+  completion time). We derive a new expression of the expected
+  running time of a \textit{bag of independent tasks} scheduled by Work Stealing.
+  This expression enables us to predict under which conditions a given run
+  will yield acceptable performance. For instance, we can easily
+  calibrate the maximal number of processors to use for a given
+  work/platform combination.  All our results are validated through
+  simulation on a wide range of parameters.
+\end{abstract}
+
+
+%\begin{graphicalabstract}
+%\includegraphics{figs/grabs.pdf}
+%\end{graphicalabstract}
+%
+%\begin{highlights}
+%\item Research highlights item 1
+%\item Research highlights item 2
+%\item Research highlights item 3
+%\end{highlights}
+
+\begin{keywords}
+Work Stealing, Latency, Makespan Analysis
+\end{keywords}
+
+
+\maketitle
+
+\input{Introduction}
+\input{analysis.tex}
+\input{ExperimentsAnalysis}
+\input{DAGanalysis.tex}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented in this paper a new analysis of Work Stealing algorithm
+where each communication has a latency of $\lambda$.  Our main result
+was to show that the expected Makespan of a load of $\calW$ independent
+tasks on a cluster of $p$ processors is bounded by
+$\calW/p+16.12\lambda\log_2(\calW/\lambda)$. Our analysis makes use of
+potential functions whose expected decrease per unit time can be
+bounded as a function of the number of work requests. We then use this
+to derive a theoretical upper bound on the expected makespan. We also
+extend this analysis one step further, by providing a bound on the
+probability to exceed the bound of the makespan.  We showed also that
+we can extend the same analysis for a model of tasks with precedence.
+
+To assess the tightness of this analysis we developed an
+\textit{ad-hoc} simulator. We showed by comparing the theoretical
+bound and the experimental results that our bound is realistic.  We
+observed moreover that our bound (established on worst case analysis)
+is four to five times greater than the experimental results and it is
+stable for all the tested values. By using traces of execution, we
+quantify the various approximations that are made in the analysis and
+suggest where the analysis could be made more accurate.
+
+For future work, we intend to study work stealing strategies in
+complex topologies where the latency can depend on the topology.  This
+work is a first step towards this as it allows a full understanding of
+the work stealing in the basic, homogeneous, setting.
+
+
+
+
+
+
+%\bibliographystyle{IEEEtran}
+
+
+
+\bibliographystyle{cas-model2-names}
+%\bibliographystyle{model1-num-names}
+%\bibliography{biblio}
+% Loading bibliography database
+\bibliography{cas-refs}
+
+\appendix
+\input{proofs}
+
+%\vskip3pt
+
+
+
+
+\end{document}
+

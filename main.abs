@@ -1,0 +1,12 @@
+ We study the impact of communication latency on the
+  classical \emph{Work Stealing} load balancing algorithm.  Our paper
+  extends the reference model in which we introduce a latency
+  parameter. By using a theoretical analysis and simulation, we study
+  the overall impact of this latency on the Makespan (maximum
+  completion time). We derive a new expression of the expected
+  running time of a \textit{bag of independent tasks} scheduled by Work Stealing.
+  This expression enables us to predict under which conditions a given run
+  will yield acceptable performance. For instance, we can easily
+  calibrate the maximal number of processors to use for a given
+  work/platform combination.  All our results are validated through
+  simulation on a wide range of parameters.
